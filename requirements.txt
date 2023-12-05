@@ -1,0 +1,7 @@
+autogen==1.0.16
+FLAML==2.1.1
+gurobipy==10.0.3
+openai==0.27.8
+OptiGuide==0.0.1
+pandas==1.5.0
+protobuf==4.24.4
