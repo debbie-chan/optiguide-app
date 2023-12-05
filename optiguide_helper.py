@@ -1,3 +1,5 @@
+import streamlit as st
+
 # test Gurobi installation
 import gurobipy as gp
 from gurobipy import GRB
@@ -11,7 +13,6 @@ import openai
 from flaml import autogen
 from flaml.autogen.agentchat import Agent, UserProxyAgent
 from optiguide.optiguide import OptiGuideAgent
-
 
 from io import StringIO
 import sys
@@ -35,6 +36,7 @@ config_list = autogen.config_list_from_json(
     }
 )
 
+@st.cache_resource
 def init_optiguide(api_key, source_code_link):
     openai.api_key = api_key
 
@@ -74,8 +76,6 @@ def get_response(user, agent, question):
     raw_output = captured_output.getvalue()
     with open('out.txt', 'w') as output:
         output.write(raw_output)
+    response = raw_output.split('(to user):')[1].strip('-').strip()
 
-    human_section = raw_output.split('(to user):')[1].strip('-').strip()
-    # response = human_section.split('(to user):')[1].strip()
-
-    return human_section
+    return response
