@@ -6,7 +6,6 @@ from gurobipy import GRB
 from eventlet.timeout import Timeout
 
 # import auxillary packages
-import requests  # for loading the example source code
 import openai
 
 # import flaml and autogen
@@ -37,17 +36,23 @@ config_list = autogen.config_list_from_json(
 )
 
 @st.cache_resource
-def init_optiguide(api_key, source_code_link):
+def init_optiguide(api_key, agent_name, source_code_link, icl_link = ""):
     openai.api_key = api_key
 
     # Get the source code
     code = open(source_code_link, "r").read()
 
+    # Get in-context examples
+    if icl_link != "":
+        icl = open(icl_link, "r").read()
+    else:
+        icl = ""
+
     agent = OptiGuideAgent(
-        name="OptiGuide Last Mile Problem",
+        name=agent_name,
         source_code=code,
         debug_times=1,
-        example_qa="",
+        example_qa=icl,
         llm_config={
             "request_timeout": 600,
             "seed": 42,
