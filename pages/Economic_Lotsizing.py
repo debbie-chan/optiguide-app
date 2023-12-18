@@ -15,7 +15,10 @@ st.caption("🚀 A streamlit chatbot powered by OpenAI LLMs and OptiGuide")
 # Managing el_messages using session state - initializing with a default assistant message
 if "el_messages" not in st.session_state:
     st.session_state["el_messages"] = [{"role": "assistant", 
-                                     "content": "I can help answer economic lotsizing questions. How can I help you today?"}]
+                                     "content": """
+                                     I can help answer economic lotsizing questions. 
+
+                                     Try asking me something like: What if the planting cost at Farm 1 increases by 10%?"""}]
 
 # Displaying existing el_messages in the chat interface
 for msg in st.session_state.el_messages:

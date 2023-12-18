@@ -15,7 +15,10 @@ st.caption("🚀 A streamlit chatbot powered by OpenAI LLMs and OptiGuide")
 # Managing sn_messages using session state - initializing with a default assistant message
 if "sn_messages" not in st.session_state:
     st.session_state["sn_messages"] = [{"role": "assistant", 
-                                     "content": "I can help answer supply network questions. How can I help you today?"}]
+                                     "content": """
+                                     I can help answer supply network questions. 
+
+                                     Try asking me something like: What if the throughput of Birmingham increased by 15%?"""}]
 
 # Displaying existing sn_messages in the chat interface
 for msg in st.session_state.sn_messages:
