@@ -30,6 +30,8 @@ This respository is structured as follows:
 └───pages
 ```
 
+To get a better idea of what is going on behind the scenes, refer to `out.txt`, generated after each question is sent to the chatbot.
+
 ## Resources
 - OptiGuide Paper: https://arxiv.org/abs/2307.03875
 - OptiGuide Repository: https://github.com/microsoft/OptiGuide
