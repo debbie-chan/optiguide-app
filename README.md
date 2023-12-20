@@ -12,7 +12,7 @@ To run the app locally, run the following commands:
 virtualenv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-streamlit run Chatbot.py
+streamlit run Home.py
 ```
 
 ## Repository Structure
